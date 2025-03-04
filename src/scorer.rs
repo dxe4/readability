@@ -18,7 +18,7 @@ pub static PUNCTUATIONS_REGEX: &str = r"([、。，．！？]|\.[^A-Za-z0-9]|,[^
 pub static UNLIKELY_CANDIDATES: &str = "combx|comment|community|disqus|extra|foot|header|menu\
      |remark|rss|shoutbox|sidebar|sponsor|ad-break|agegate\
      |pagination|pager|popup|tweet|twitter\
-     |ssba";
+     |ssba|mw-editsection|cite_ref-";
 pub static LIKELY_CANDIDATES: &str = "and|article|body|column|main|shadow\
                                               |content|hentry";
 pub static POSITIVE_CANDIDATES: &str = "article|body|content|entry|hentry|main|page\

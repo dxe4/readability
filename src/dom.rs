@@ -105,7 +105,18 @@ pub fn extract_text(handle: Handle, text: &mut String, deep: bool) {
         let c = child.clone();
         match c.data {
             Text { ref contents } => {
-                text.push_str(contents.borrow().as_ref());
+                let cc = contents.borrow().to_string();
+
+                if text.len() > 0 && text.chars().last().unwrap() != ' ' {
+                    let needs_space = match text.trim().chars().last().unwrap() {
+                        '.' | '!' | ',' | '"' | '\'' => false,
+                        _ => true,
+                    };
+                    if needs_space {
+                        text.push_str(" ");
+                    }
+                }
+                text.push_str(cc.trim());
             }
             Element { .. } => {
                 if deep {
